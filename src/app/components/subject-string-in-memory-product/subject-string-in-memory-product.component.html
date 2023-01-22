@@ -1,0 +1,25 @@
+<table>
+    <tr>
+        <td>
+            <mat-card>
+                <mat-card-content *ngFor="let item of products$ | async">
+                    {{item.title}}
+                    <button (click)="onShowDetailsButtonClicked(item)">Show details</button>
+                    
+                </mat-card-content>
+            </mat-card>
+        </td>
+        <td>
+            
+            <mat-card>
+                <mat-card-content *ngIf="productsDetails$ | async as item; esle empty">
+                    {{item.title}} {{item.price}}$
+                </mat-card-content>
+                <ng-template #empty>
+                     There is no data!
+                </ng-template>
+            </mat-card>
+        </td>
+    </tr>
+</table>
+
