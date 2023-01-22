@@ -1,0 +1,21 @@
+
+<ng-container *ngIf="usersDetails$ | async as item; else empty">
+  <img [src]="item.avatar">
+  <br>
+  {{item.name}}
+  <br><br>
+  <button mat-mini-fab (click)="onCancelButtonClicked()">
+    <mat-icon>cancel</mat-icon>
+  </button>
+</ng-container>
+<h1>User list</h1>
+<mat-chip-list aria-label="Fish selection">
+  
+  <br>
+  <mat-chip *ngFor="let item of users$ | async" (click)="onButtonClicked(item)">
+ {{item.name}}
+</mat-chip>
+<ng-template #empty>
+  There is no data!
+</ng-template>
+</mat-chip-list>
