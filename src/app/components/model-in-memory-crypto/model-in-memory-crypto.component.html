@@ -1,0 +1,21 @@
+<mat-grid-list cols="2">
+    <mat-grid-tile >
+    <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let item of crypto$ | async">
+            {{item.symbol}} 
+             <button (click)="onButtonClicked(item)">Show price change</button>
+        </mat-list-item>
+        </mat-list>
+             
+          
+    </mat-grid-tile>
+
+    <mat-grid-tile *ngIf="cryptoDetails$ | async as item; esle empty">
+            {{item.priceChange}}
+  </mat-grid-tile>
+
+  <ng-template #empty>
+    There is no data!
+  </ng-template>
+</mat-grid-list>
+
