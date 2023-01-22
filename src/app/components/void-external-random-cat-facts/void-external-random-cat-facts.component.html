@@ -1,0 +1,9 @@
+<mat-card>
+    <mat-card-title>
+        Random cat fact
+    </mat-card-title>
+    <mat-card-content *ngIf="catFact$ | async as item">
+        {{item.fact}}
+    </mat-card-content>
+    <button (click)="onNextButtonClicked()">Next</button>
+</mat-card>
