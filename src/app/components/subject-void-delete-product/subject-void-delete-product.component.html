@@ -1,0 +1,9 @@
+<mat-card>
+    <mat-card-title>
+        Product list
+    </mat-card-title>
+    <mat-card-content *ngFor="let item of products$ | async">
+        {{item.title}} {{item.price}} 
+        <button (click)="onRemoveButtonClicked(item)">Remove</button>
+    </mat-card-content>
+</mat-card>
