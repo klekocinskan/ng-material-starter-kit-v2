@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { CountryModel } from '../../models/country.model';
 import { CountryService } from '../../services/country.service';
 
@@ -11,12 +12,15 @@ import { CountryService } from '../../services/country.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SubjectVoidExternalDeleteCountryComponent {
-  readonly countries$: Observable<CountryModel[]> = this._countryService.getAll();
+  private _refreshDeletedCountryListSubject: BehaviorSubject<void> = new BehaviorSubject<void>(void 0);
+  public countries$: Observable<CountryModel[]> = this._refreshDeletedCountryListSubject.asObservable().pipe(switchMap(data => this._countryService.getAll()));
 
   constructor(private _countryService: CountryService) {
   }
 
-  onRemoveButtonClicked(country: CountryModel){
-    this._countryService.delete(country.id).subscribe();
+  onRemoveButtonClicked(country: CountryModel) {
+    this._countryService.delete(country.id).subscribe(
+      () => this._refreshDeletedCountryListSubject.next()
+    );
   }
 }
