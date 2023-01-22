@@ -12,8 +12,10 @@
         <td>
             
             <mat-card>
-                <mat-card-content *ngIf="productsDetails$ | async as item; esle empty">
-                    {{item.title}} {{item.price}}$
+                <mat-card-content>
+                    <ng-container *ngIf="productsDetails$ | async as item; esle empty">
+                        {{item.title}} {{item.price}}$
+                    </ng-container>  
                 </mat-card-content>
                 <ng-template #empty>
                      There is no data!
