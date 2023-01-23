@@ -1,0 +1,20 @@
+<table>
+    <tr>
+        <td>
+            <mat-card>
+                <mat-card-content *ngFor="let item of jobs$ | async">
+                    {{item.title}}
+                    <button *ngFor="let tags of item.jobTagIds" (click)="onTagButtonClicked(tags)">Show tag: {{tags}}</button>
+                </mat-card-content>
+
+               
+            </mat-card>
+        </td>
+        <td>
+            <ng-container *ngIf="tags$ | async as tags">
+                <div>{{tags.id}} {{tags.name}}</div> 
+            </ng-container>
+        </td>
+
+    </tr>
+</table>
