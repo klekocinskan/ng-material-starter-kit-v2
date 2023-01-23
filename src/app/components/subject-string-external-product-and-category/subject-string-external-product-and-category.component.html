@@ -1,0 +1,26 @@
+<table>
+  <tr>
+    <td>
+        <mat-card >
+        <mat-card-content *ngFor="let item of products$ | async">
+            {{item.title}}
+            <button (click)="onShowDetailsButtonClicked(item.category)">Show products in category</button>
+        </mat-card-content>
+         
+            
+        </mat-card>
+    </td>
+  
+    <td>
+            <mat-card >
+                <mat-card-content *ngFor="let item of productDetails$ | async">
+                    {{item.title}}
+                </mat-card-content>
+                
+            </mat-card>
+      
+        
+    </td>
+  </tr>
+
+</table>

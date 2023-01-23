@@ -19,4 +19,9 @@ export class ProductsService {
   getOne(id: number): Observable<ProductsModel>{
     return this._httpClient.get<ProductsModel>('https://fakestoreapi.com/products/' + id);
   }
+  
+  getByCategory(category: string): Observable<ProductsModel[]>{
+    return this._httpClient.get<ProductsModel[]>('https://fakestoreapi.com/products/category/' +category);
+  }
+
 }
