@@ -4,6 +4,8 @@
     </mat-card-title>
     <mat-card-content>
         <ng-container *ngIf="cart$ | async as item">
+            <!-- nie jestem pewna czy tutaj powinno wyświetlać się ile rodzajów
+            produktów jest w koszyku czy może ile jest sumarycznie produktów? -->
             {{ item.products.length }}
         </ng-container>
     </mat-card-content>
