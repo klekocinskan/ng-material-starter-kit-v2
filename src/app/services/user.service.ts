@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserModel } from '../models/user.model';
 import { UserRoleModel } from '../models/user-role.model';
+import { DepartmentModel } from '../models/department.model';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -15,5 +16,9 @@ export class UserService {
 
   getRoles(): Observable<UserRoleModel[]> {
     return this._httpClient.get<UserRoleModel[]>('https://636ce2d8ab4814f2b2712854.mockapi.io/roles');
+  }
+
+  getDepartment(): Observable<DepartmentModel[]>{
+    return this._httpClient.get<DepartmentModel[]>('https://636ce2d8ab4814f2b2712854.mockapi.io/departments')
   }
 }
