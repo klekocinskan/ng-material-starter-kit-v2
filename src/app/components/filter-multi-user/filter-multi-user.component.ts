@@ -18,14 +18,14 @@ export class FilterMultiUserComponent {
   readonly roles$: Observable<UserRoleModel[]> = this._userService.getRoles();
   readonly department$: Observable<DepartmentModel[]> = this._userService.getDepartment();
   private _selectedRolesSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-  private _selectedDepartmentSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  private _selectedDepartmentSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
 
   onRoleChanged(role: number): void {
     this._selectedRolesSubject.next(role)
   }
 
-  onDepartmentChanged(department: number): void {
+  onDepartmentChanged(department: string): void {
     this._selectedDepartmentSubject.next(department)
   }
 
@@ -39,7 +39,8 @@ export class FilterMultiUserComponent {
     return users.filter(
       (user) =>{
         return(
-          (role ? user.roleId === role : true && department  ? user.departmentId === +department : true)
+          (role != 0 ? user.roleId === role : true) &&
+          (department != '' ? user.departmentId === +department : true) 
         )
        
       }
