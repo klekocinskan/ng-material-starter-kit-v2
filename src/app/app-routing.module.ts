@@ -8,6 +8,7 @@ import { SortingSingleUserComponent } from './components/sorting-single-user/sor
 import { FilterMultiUserComponent } from './components/filter-multi-user/filter-multi-user.component';
 import { SortingFieldCryptoComponent } from './components/sorting-field-crypto/sorting-field-crypto.component';
 import { FilterAndSortMultiUsersComponent } from './components/filter-and-sort-multi-users/filter-and-sort-multi-users.component';
+import { SubjectPaginationBeBeersComponent } from './components/subject-pagination-be-beers/subject-pagination-be-beers.component';
 import { FilteringSingleProductCategoryComponentModule } from './components/filtering-single-product-category/filtering-single-product-category.component-module';
 import { FilteringSingleBeProductComponentModule } from './components/filtering-single-be-product/filtering-single-be-product.component-module';
 import { FilteringSingleUserComponentModule } from './components/filtering-single-user/filtering-single-user.component-module';
@@ -16,9 +17,10 @@ import { SortingSingleUserComponentModule } from './components/sorting-single-us
 import { FilterMultiUserComponentModule } from './components/filter-multi-user/filter-multi-user.component-module';
 import { SortingFieldCryptoComponentModule } from './components/sorting-field-crypto/sorting-field-crypto.component-module';
 import { FilterAndSortMultiUsersComponentModule } from './components/filter-and-sort-multi-users/filter-and-sort-multi-users.component-module';
+import { SubjectPaginationBeBeersComponentModule } from './components/subject-pagination-be-beers/subject-pagination-be-beers.component-module';
 
 @NgModule({
-  imports: [RouterModule.forRoot([{ path: 'products', component: FilteringSingleProductCategoryComponent }, { path: 'products-be', component: FilteringSingleBeProductComponent }, { path: 'users', component: FilteringSingleUserComponent }, { path: 'sorted-products', component: SortSingleProductComponent }, { path: 'users-sorted', component: SortingSingleUserComponent }, { path: 'filter-multi-user', component: FilterMultiUserComponent }, { path: 'crypto', component: SortingFieldCryptoComponent }, { path: 'filter-and-sort-multi-users', component: FilterAndSortMultiUsersComponent }]), FilteringSingleProductCategoryComponentModule, FilteringSingleBeProductComponentModule, FilteringSingleUserComponentModule, SortSingleProductComponentModule, SortingSingleUserComponentModule, FilterMultiUserComponentModule, SortingFieldCryptoComponentModule, FilterAndSortMultiUsersComponentModule],
+  imports: [RouterModule.forRoot([{ path: 'products', component: FilteringSingleProductCategoryComponent }, { path: 'products-be', component: FilteringSingleBeProductComponent }, { path: 'users', component: FilteringSingleUserComponent }, { path: 'sorted-products', component: SortSingleProductComponent }, { path: 'users-sorted', component: SortingSingleUserComponent }, { path: 'filter-multi-user', component: FilterMultiUserComponent }, { path: 'crypto', component: SortingFieldCryptoComponent }, { path: 'filter-and-sort-multi-users', component: FilterAndSortMultiUsersComponent }, { path: 'subject-pagination-be-beers', component: SubjectPaginationBeBeersComponent }]), FilteringSingleProductCategoryComponentModule, FilteringSingleBeProductComponentModule, FilteringSingleUserComponentModule, SortSingleProductComponentModule, SortingSingleUserComponentModule, FilterMultiUserComponentModule, SortingFieldCryptoComponentModule, FilterAndSortMultiUsersComponentModule, SubjectPaginationBeBeersComponentModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
